@@ -1,0 +1,46 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f5faff;
+    color: #333;
+  }
+  
+  .container {
+    max-width: 500px;
+    margin: auto;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  h1 {
+    margin-top: 1rem;
+    color: #2e86de;
+  }
+  
+  #countdown {
+    font-size: 1.2rem;
+    margin: 10px 0 20px;
+    font-weight: bold;
+  }
+  
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .card:hover {
+    background-color: #e8f0fe;
+    transform: translateY(-3px);
+  }
+  

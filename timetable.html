@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Study Timetable</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f7fbff;
+      padding: 1rem;
+    }
+
+    h1, h2 {
+      color: #2c3e50;
+    }
+
+    .routine {
+      background: #eaf6ff;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.6rem;
+      text-align: left;
+    }
+
+    th {
+      background: #d6eaf8;
+    }
+
+    .date-card {
+      background: #ffffff;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    .subject-status {
+      margin-top: 0.5rem;
+    }
+
+    .status-btn {
+      padding: 4px 10px;
+      margin-right: 6px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+
+    .completed { background: #2ecc71; color: white; }
+    .pending { background: #f1c40f; color: white; }
+    .revise { background: #e74c3c; color: white; }
+  </style>
+</head>
+<body>
+
+  <h1>📚 Study Timetable</h1>
+
+  <div class="routine">
+    <h2>🧠 Daily Routine Overview</h2>
+    <p><strong>Total Study Time:</strong> ~10 hours/day</p>
+    <ul>
+      <li><strong>7:00 – 8:30 AM:</strong> High-weight Physics topic</li>
+      <li><strong>9:30 – 11:30 AM:</strong> Chemistry Important Topics</li>
+      <li><strong>12:30 – 2:00 PM:</strong> Biology (Botany/Zoology alternate days)</li>
+      <li><strong>3:30 – 5:30 PM:</strong> Practice MCQs</li>
+      <li><strong>6:00 – 8:00 PM:</strong> Doubts + Revision</li>
+    </ul>
+  </div>
+
+  <h2>📅 May 5 – May 11: Concept Brushing + MCQs</h2>
+
+  <div id="week1"></div>
+
+  <h2>📅 May 12 – May 18: Final Revision + Mock Tests</h2>
+
+  <div id="week2"></div>
+
+  <a href="index.html">← Back to Home</a>
+
+  <script>
+    const week1Data = [
+      { date: "May 5", physics: "Thermodynamics", chemistry: "Chemical Bonding + Thermodynamics", biology: "Plant Physiology" },
+      { date: "May 6", physics: "Work, Energy, Power + Laws of Motion", chemistry: "Organic Principles + Solutions", biology: "Human Reproduction + Genetics" },
+      { date: "May 7", physics: "System of Particles + Rotational", chemistry: "Alcohols, Phenols, Ethers", biology: "Cell + Structural Organization" },
+      { date: "May 8", physics: "Motion in Plane + Oscillations", chemistry: "Electrochemistry + Atomic Structure", biology: "Microbiology + Biotech" },
+      { date: "May 9", physics: "Waves + Gravitation", chemistry: "p-Block Elements", biology: "Ecology + Cockroach Study" },
+      { date: "May 10", physics: "Magnetism + Current Electricity", chemistry: "Organic C, H, O Compounds", biology: "Immunity + Evolution" },
+      { date: "May 11", physics: "Ray Optics + EMI", chemistry: "Coordination + Metallurgy + s-block", biology: "Reproductive Health + Systems" },
+    ];
+
+    const week2Data = [
+      { date: "May 12", physics: "Full Physics Mock", chemistry: "Chemistry Mock", biology: "Weak Bio Topic Revision" },
+      { date: "May 13", physics: "Chapter-wise MCQs", chemistry: "-", biology: "Bio Mock Paper" },
+      { date: "May 14", physics: "Full-Length EAMCET Paper 1 (Timed)", chemistry: "-", biology: "Paper 2 (Open Book)" },
+      { date: "May 15", physics: "Review Mocks", chemistry: "-", biology: "Fix Errors" },
+      { date: "May 16", physics: "Rapid Fire Formulas", chemistry: "-", biology: "Mistakes + Diagrams" },
+      { date: "May 17", physics: "Final Grand Mock", chemistry: "-", biology: "Relax + Walk" },
+      { date: "May 18", physics: "Light Revision", chemistry: "-", biology: "Mindfulness + Early Sleep" },
+    ];
+
+    function renderPlan(data, containerId) {
+      const container = document.getElementById(containerId);
+      data.forEach((item, i) => {
+        const div = document.createElement('div');
+        div.className = 'date-card';
+        div.innerHTML = `
+          <h3>📅 ${item.date}</h3>
+          <p><strong>Physics:</strong> ${item.physics}</p>
+          <div class="subject-status">
+            <button class="status-btn completed">Completed</button>
+            <button class="status-btn pending">Pending</button>
+            <button class="status-btn revise">Revise Again</button>
+          </div>
+          <p><strong>Chemistry:</strong> ${item.chemistry}</p>
+          <div class="subject-status">
+            <button class="status-btn completed">Completed</button>
+            <button class="status-btn pending">Pending</button>
+            <button class="status-btn revise">Revise Again</button>
+          </div>
+          <p><strong>Biology:</strong> ${item.biology}</p>
+          <div class="subject-status">
+            <button class="status-btn completed">Completed</button>
+            <button class="status-btn pending">Pending</button>
+            <button class="status-btn revise">Revise Again</button>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    renderPlan(week1Data, "week1");
+    renderPlan(week2Data, "week2");
+  </script>
+</body>
+</html>
